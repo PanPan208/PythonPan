@@ -1,7 +1,5 @@
 
-
 print("Hello World 1111")
-
 
 if 10 > 2:
     print("啊哈哈")
@@ -25,6 +23,17 @@ else:
 # namelist = ['Sophia','Emma','Olivia','Ava','Mia','Isabella','Zoe','Lily','Emily','Madison','Jackson','Aiden','Liam','Lucas','Noah','Mason','Ethan','Caden','Logan','Jacob']
 # for i in namelist:
 #     print(i)
+
+
+'''
+多行注释
+Hello World
+这是第一个Python程序
+Life is short, you need python!
+
+集成开发环境：
+IDE integrated development environment
+'''
 
 
 # range是从0开始到x-1的整数序列
