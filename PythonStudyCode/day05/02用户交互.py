@@ -50,14 +50,14 @@
 # print("my age is %d" % 10)
 
 
-# 2 使用str的format方法 (推荐使用)
+# 2 使用str的format方法  (推荐使用)
 # 直接使用{} 作为一个占位符号
 # print("my name is {}, my age is {}".format("panpan", 20))
 # {0} 为取format中的第一个元素
 # {1} 为取format中的第二个元素
 # print("my name is {0}{0}{0}, my age is {0}{1}".format("pan", 10))
 
-# 可以安装key = value的格式进行传值
+# 可以按照key = value的格式进行传值
 # {name} 找到format中对应的name 对应的值 放入到 {name} 的位置即可
 # print("my name is {name}, my age is {age} {age}".format(name = "pan", age = 100))
 
@@ -102,7 +102,7 @@
 # print("{0:.}".format(778812399913123)) # error
 
 
-# 3 f  Python3.5之后才推出的一种格式化
+# 3 f  Python3.5之后才推出的一种格式化 （不推荐使用）
 # 字符串前面使用一个字母f
 # 使用{} 中间直接放入需要放的变量即可
 x = input("请输入x:")
