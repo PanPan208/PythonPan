@@ -11,6 +11,10 @@
 # 如果想要在字符串中显示 {}  可以使用 {{{name}}}
 # 不能是{{name}}
 # print("my name is {{{name}}}".format(name="pan"))
+# 使用\转译符号 转译{ } 没有效果 会报错
+# print("my name is \{ {name} \}".format(name="pan"))
+# 其他符号可以转译
+# print("my name is \'pan\'")
 # name = "pan"
 # print(f"my name is {{{name}}}")
 
@@ -71,5 +75,3 @@ else:
 #     print("error")
 
 # if条件判断和逻辑运算符一起使用
-
-

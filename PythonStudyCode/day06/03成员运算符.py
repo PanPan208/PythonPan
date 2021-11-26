@@ -4,7 +4,7 @@
 
 # 1 in
 # 判断一个字符串是否是在一个字符串中
-print("pan" in "my name is zhaopan")
+print("pan" in "my name is zhao pan")
 print("123" in "my age is 120")
 
 # 判断一个元素是否在一个列表中
@@ -29,4 +29,3 @@ print(x is y)
 y = 11
 print(id(x), id(y))
 print(x is y)
-

@@ -1,0 +1,20 @@
+复习：07
+深浅copy
+直接将list1赋值给list2不是copy
+而是两个变量同时指向了同一块的内存地址
+
+浅copy
+list2 = list1.copy()
+
+深copy
+import copy
+list2 = copy.deepcopy(list1)
+
+流程控制while语句
+1、使用break直接退出while循环
+2、使用flag进行退出while循环
+
+while-else语句
+如果是使用break退出的循环不会执行else语句
+如果是正常退出的循环的会执行else语句
+
