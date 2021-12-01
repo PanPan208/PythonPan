@@ -80,7 +80,7 @@
 #     input_name = input("请输入您的姓名:").strip().lower()
 #     input_pwd = input("请输入密码:").strip().lower()
 #     if not input_pwd.isdigit():
-#         print("密码为数字类型")
+#         print("密码需要为数字类型")
 #         continue
 #
 #     if input_name == "pan" and input_pwd == "123":
