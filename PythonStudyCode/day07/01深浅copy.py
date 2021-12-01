@@ -31,27 +31,35 @@ list1 = ["a", "b", [111, 222]]
 # print(id(list1[0]), id(list1[1]), id(list1[2][0]), id(list1[2][1]))
 # print(id(list2[0]), id(list2[1]), id(list2[2][0]), id(list2[2][1]))
 
+# I： 修改列表1中的不可变数据
 # 如果改变的是不可变的量 相当于将list中的不可变的量重新赋值
-# list2还是指向之前的地址， 所以list2中对应的不可变的量不会改变
+# list2中的不可变数据还是指向之前的地址， 所以list2中对应的不可变的量不会改变
 # list2 = list1.copy()
 # list1[0] = "pan"
 # list1[1] = "bbb"
+# print(list1, list2)
 
+# II： 修改的是列表1中可变列表中的不可变数据
 # 改变第二层中的数据  list1 list2都是指向这个子列表的地址
 # 所以修改这个子列表中的数据
 # 两个列表都会跟着变化
-# list1[2][0] = "000"
+list2 = list1.copy()
+list1[2][0] = "AAA"
+list1[2][1] = "BBB"
+print(list1)
+print(list2)
 
+# III： 直接将列表1中的可变数据直接赋值
 # 直接将list1中的子列表改为其他值
 # 相当于list1重新指向了一个新的地址
 # list2还是指向之前的子列表的地址  所以list2不会改变
-# list1[2] = "haha"
-# print(list1, list2)
+list1[2] = "haha"
+print(list1, list2)
 
 # 综上：两个列表并没有完全独立开来
 # 当修改的是子列表中的数据的时候 两个列表都会跟着变化
-
-
+# 如果是直接将子列表重新赋值 相当于指向了一个新的内存地址
+# 另一个列表还是指向之前的地址 所以不会变化
 
 
 # 2 深copy
@@ -68,7 +76,7 @@ list2 = copy.deepcopy(list1)
 # 对于列表中的可变数据 新列表指向了一个不同的地址
 # 这个可变数据中的子数据是不可变数据 又指向了同一个相同的内存
 # 同理上面的是为了 省内存
-print(list1, list2)
+# print(list1, list2)
 # print(id(list1), id(list2))
 # print(id(list1[0]), id(list1[1]), id(list1[2]))
 # print(id(list2[0]), id(list2[1]), id(list2[2]))

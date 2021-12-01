@@ -79,6 +79,22 @@ for i in 可迭代的对象：
 #         continue
 #     print("i = ", i)
 
+
+# python2中range会返回一个range对应的list数组
+# python3中的range返回的就是一个range 无论多大返回的都是一个range
+# 只有在循环到某个循环的时候才会从range中取出对应的index
+# python3中的range相等于是一个会下蛋的老母鸡
+# 这样range如果是一个很大的数 那么range也不会占用很大的内存
+"""
+python2
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+python3
+>>> range(10)
+range(0, 10)
+"""
+
 # for-else语句 与 while循环一致
 # for i in range(1, 10):
 #     print(i)
@@ -89,17 +105,23 @@ for i in 可迭代的对象：
 #     print("循环结束")
 
 # 例子
-# for i in range(3):
-#     input_name = input("请输入您的姓名:")
-#     input_pwd = input("请输入您的密码:")
-#     if input_name == "pan" and input_pwd == "123":
-#         print("登录成功")
-#         break
-# else:
-#     print("输入错误次数太多!")
+# 如果是break的原因退出的for语句那么 for-else后面的语句不会执行
+# 如果是因为正常情况下退出for语句 那么for-else语句会执行
+for i in range(3):
+    input_name = input("请输入您的姓名:")
+    input_pwd = input("请输入您的密码:")
+    if input_name == "pan" and input_pwd == "123":
+        print("登录成功")
+        break
+else:
+    print("输入错误次数太多!")
 
+
+# 其他
 # print("hello %s" % "pan")
+# print中使用逗号 可以链接多个字符串
 # print("hello", "world", "pan")
+# print函数默认的 end = "\n"
 # print("hello\n")
 # print("pan")
 # 如果end后面跟的是"" 那么不会换行

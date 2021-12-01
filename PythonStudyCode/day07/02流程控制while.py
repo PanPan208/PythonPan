@@ -71,7 +71,8 @@ pwd = "123"
 # print("======= end ====== ")
 
 # while-else语句
-# 1 正常退出
+# 1 正常退出 不是因为break才退出while循环的
+# 会执行while-else中的语句
 # count = 1
 # while count < 5:
 #     print(count)
@@ -82,14 +83,17 @@ pwd = "123"
 #
 # print("=========  end ==========")
 
-# 2 break 退出
-while True:
+# 2 由break 而退出while-else循环的
+# 会执行break语句
+count = 0
+while count < 3:
     input_name = input("请输入姓名:")
     if input_name == name:
         print("姓名输入正确")
         break
     else:
         print("请重新输入")
+    count += 1
 else:
     # 由于是因为break退出的while循环 所以else代码块永远不会执行
     # 不会执行的语句 PyCharm直接会提示错误
@@ -98,9 +102,3 @@ else:
 print("=========  end ==========")
 
 # Python中没有do-while语句
-
-
-
-
-
-

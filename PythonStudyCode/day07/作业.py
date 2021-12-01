@@ -13,6 +13,10 @@
 #         continue
 #     print(i)
 
+# for i in range(1, 11):
+#     if i != 7:
+#         print(i)
+
 # 计算1-100的和
 # sum = 0
 # count = 1
@@ -25,6 +29,8 @@
 # sum = 0
 # for i in range(1, 101):
 #     sum += i
+# else:
+#     print("计算结束")
 # print(sum)
 
 # 打印1-100之间的所有奇数
@@ -38,15 +44,6 @@
 # for i in range(1, 101):
 #     if i % 2 != 0:
 #         print(i)
-
-# 打印1-100之间的所有偶数
-# count = 1
-# while count <= 100:
-#     if count % 2 == 0:
-#         print(count)
-#     count += 1
-# else:
-#     print("打印完成")
 
 # 打印1-100中所有的质数
 # 质数只能被1和自身整除的数
@@ -95,10 +92,11 @@
 # for i in range(1, 101):
 #     if i % 2 == 0:
 #         sum -= i
-#         print("sum - ", i)
+#         print("-", i, end="")
 #     else:
 #         sum += i
-#         print("sum + ", i)
+#         print("+", i, end="")
+# print("\n", sum)
 
 # 三次机会输入用户名和密码
 # count = 0
@@ -117,14 +115,14 @@
 #         break
 
 # for-in
-for i in range(3):
-    input_name = input("请输入您的姓名:")
-    input_pwd = input("请输入您的密码:")
-    if input_name == "pan" and input_pwd == "123":
-        print("登录成功")
-        break
-else:
-    print("三次机会已经使用完毕")
+# for i in range(3):
+#     input_name = input("请输入您的姓名:")
+#     input_pwd = input("请输入您的密码:")
+#     if input_name == "pan" and input_pwd == "123":
+#         print("登录成功")
+#         break
+# else:
+#     print("三次机会已经使用完毕")
 
 # 猜年龄
 # age = 60
@@ -152,7 +150,6 @@ else:
 #                 break
 #             else:
 #                 print("请重新回答是否还要继续玩?")
-#
 #         if count == 3:
 #             break
 #

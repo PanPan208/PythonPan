@@ -4,16 +4,23 @@
 整数进制之间的转换
 """
 
+# 使用以下两种方式初始化一个整数是完全等价的
 # age = 10
+# age = int(10)
+
+# 浮点型的数可以转换为int类型的整数
 # age = int(10.0)
 # print(age, type(age))
 
 # 纯数字的字符串可以转换为整数
-# age = int("20")
-# print(age, type(age))
+age = int("20")
+# error 不能将浮点型的字符串转换为整形
+# age = int("123.123")
+print(age, type(age))
+age = float("123.132")
+print(age, type(age))
 
 # 十进制转换为其他进制
-
 # 十进制 - 二进制
 # 11 -
 # 0b1011 = 8 0 2 1 = 11
@@ -30,7 +37,8 @@ print(oct(11))
 print(hex(123))
 
 # 其他进制转换为十进制
-# 第一个参数是其他进制数 第二个参数是这个进制对应的进制
+# 第一个参数是其他进制数
+# 第二个参数是这个数对应的进制
 print(int("0b1011", 2))
 print(int("0o13", 8))
 print(int("0x7b", 16))
