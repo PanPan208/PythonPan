@@ -14,7 +14,7 @@ list1 = ["a", "b", [111, 222]]
 # print(id(list2[0]), id(list2[1]), id(list2[2][0]), id(list2[2][1]))
 
 
-# list1[0] = "aaa"
+# list1[0] = "res"
 # list1[1] = "bbb"
 # list1[2][0] = 1
 # list1[2][1] = 2

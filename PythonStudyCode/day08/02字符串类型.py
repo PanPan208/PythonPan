@@ -141,7 +141,7 @@
 # error
 # 如果要将一个列表拼接成一个字符串，那么这个列表中只能有str类型
 # 不能有其他类型 也不能包含子列表
-# res2 = [["123", "a"], True, "aaa"]
+# res2 = [["123", "a"], True, "res"]
 # print("*".join(res2))
 
 # # 10 replace 替换字符中的子字符串
@@ -155,7 +155,8 @@
 # print(msg)
 # print(new_msg)
 
-# 11 判断一个字符串是否是纯数字的字符串
+# 11  is
+# 判断一个字符串是否是纯数字的字符串
 # age = "123"
 # print(age.isdigit())
 # print(age.islower())
@@ -184,7 +185,7 @@
 #             print("bingo")
 #             break
 #     else:
-#         print("请输入整数")
+#         print("请输入数字类型")
 
 
 # # # 12 find index 查询某个子字符串或者字符在大字符串中的起始索引
@@ -212,12 +213,14 @@
 # print(msg.center(50, "*"))
 # print(msg.ljust(50, "*"))
 # print(msg.rjust(50, "*"))
-# # 如果是填充 是右对齐 前面默认是使用0作为占位符
+# # 如果是填充 默认是右对齐
+# # 前面默认是使用0作为占位符  zero fill
 # print(msg.zfill(50))
 
-# 15 设置 制表符的空格数
-# msg = "hello\world"
-# print(msg.expandtabs(10))
+# 15 设置 制表符的空格数 \t
+# 默认是4个空格 有的平台可能不相同
+# msg = "hello\tworld"
+# print(msg.expandtabs(2))
 
 # # 16
 # # capitalize 会将字符串的第一个字符改为大写 其他都改为小写
@@ -239,14 +242,16 @@
 # print("ABC".isupper())
 # # 是不是全部是字符
 # print("adffdasifdsadf".isalpha())
-# # 是不是只有字母和数字组成的字符串
+# # 是不是只有字母或数字组成的字符串
 # print("f123fasdfdsi".isalnum())
 # # 是否是由空格组成的字符
 # print("  ".isspace())
 # # 判断是否是合法变量名
-# print("print".isidentifier())
-# print("ege_of-pa".isidentifier())
-# print("123age".isidentifier())
+# # 所有的python保留字 都是合法的
+# print("print".isidentifier()) # true
+# print("age_pan".isidentifier()) # true
+# print("ege_of-pa".isidentifier()) # false
+# print("123age".isidentifier()) # false
 
 # 18 num系列
 num1 = b'5'  # bytes

@@ -15,18 +15,24 @@
 # print(list1)
 # # ['m', 'y', ' ', 'n', 'a', 'm', 'e', ' ', 'i', 's', ' ', 'p', 'a', 'n']
 
-# # 如果是将一个字典转换为list那么获取的是字典中的key
+# # 如果是将一个字典转换为list
+# # 那么获取的是字典中的key 将所有的key放到一个列表中
 # list1 = list({"k1": "pan", "k2": "value2", "k3": "value3"})
 # print(list1, type(list1))
 
-# 内置方法
+# # 将一个元组转换为一个list列表
+# list1 = list((1, 2, 3, 4))
+# print(list1, type(list1))
+
+# -------------------------------------- 内置方法
+# -------------------------------------- 1
 # 1 取值/修改值
-# list1 = [1, 2, "aaa", 3.14]
+# list1 = [1, 2, "res", 3.14]
 # 正向取
 # print(list1[0])
 # print(list1[2])
 # list index out of range
-# 下标越界 会直接报index errror
+# 下标越界 会直接报index error
 # print(list1[5])
 # 也可以负向取值  -1 代表的是最后一位
 # print(list1[-1])
@@ -42,10 +48,11 @@
 # list1[4] = "haha"
 # print(list1)
 
+# -------------------------------------- 2
 # 2 切片取值  顾头不顾尾
-# 和字符串类似
-# list1 = [1, 2, "aaa", 3.14, "a", "b", [10, 11, 12, "pan"]]
-# res = list1[0:2]
+# 和字符串类似  尾部的值可以取大于列表长度的值
+# list1 = [1, 2, "res", 3.14, "a", "b", [10, 11, 12, "pan"]]
+# res = list1[0:200]
 # print(res)
 
 # # 设置步长
@@ -75,6 +82,7 @@
 # print(list1)
 # print(res)
 
+# -------------------------------------- 3
 # 3 获取长度
 # print(len([1, 2, 3, 4, 5]))
 
@@ -83,12 +91,21 @@
 # print(1 not in [1, 2, 3])
 
 
+# -------------------------------------- 5
 # 5 列表中追加内容
 # list1 = [1, 2, 3, 4, "a"]
 
 # # 在列表末尾添加数据
-# list1.append("aaa")
+# list1.append("res")
 # list1.append("bbb")
+# print(list1)
+
+# # 在某个位置插入值
+# # 第一个参数是指定的位置
+# # 第二个参数是需要插入的值
+# list1.insert(0, "res")
+# list1.insert(1, [1, 2])
+# list1.insert(-1, True)
 # print(list1)
 
 # # 如果是添加一个列表 是将整个列表当成一个元素添加到列表中
@@ -108,29 +125,22 @@
 # list1.extend(new_list)
 # print(list1)
 
-# # 在某个位置插入值
-# # 第一个参数是指定的位置
-# # 第二个参数是需要插入的值
-# list1.insert(0, "aaa")
-# list1.insert(1, [1, 2])
-# list1.insert(-1, True)
-# print(list1)
 
-
+# -------------------------------------- 6
 # 6 删除值
 # list1 = [1, 2, 3, 4, "a"]
 
-# # 方法1 使用del 知识单纯的删除 没有返回值
+# # 方法1 使用del 只是单纯的删除 没有返回值
 # del list1[-1]
 # print(list1)
 # SyntaxError: invalid syntax
 # del删除值 没有返回值
 # res = del list1[0]
-# 如果是删除列表 那么就不能使用列表了
+# 如果是删除列表 相当于把整个列表删除  那么就不能使用列表了
 # del list1
 # print(list1)
 
-# # 方法2 pop  删除指定位置的值 并返回移除的值
+# # 方法2 pop  删除指定位置的值  并返回移除的值
 # res = list1.pop(0)
 # print(list1)
 # print(res)
@@ -142,7 +152,7 @@
 # # list1.pop(10)
 # # print(list1)
 
-# # 方法3 remove  直接移除对应的值 但是返回的是None
+# # 方法3 remove  直接移除对应的值  但是返回的是None
 # res = list1.remove("a")
 # print(res)
 # print(list1)
@@ -153,6 +163,7 @@
 # # list1.remove(10)
 # print(list1)
 
+# -------------------------------------- 7
 # # 7 循环列表
 # list1 = [1, 2, 3, 4, "ab", "b", "c"]
 # for item in list1:
@@ -165,10 +176,11 @@
 # list1 = ["aa", 1, 2, "aa", "aa", "abc", "aa"]
 # print(list1.count("aa"))
 
-# # 9 index
+# -------------------------------------- 9
+# # 9 index 查找对应的值所在的索引值
 # list1 = ["aa", 1, 2, "aa", "aa", "abc", "aa"]
 # print(list1.index("aa"))
-# print(list1.index("aa", 2, 10))
+# print(list1.index("aa", 3, 10))
 # # pan is not in list
 # # 如果查找一个元素的index 这个元素不在列表中 会报错
 # # print(list1.index("pan"))
@@ -183,6 +195,7 @@
 # list1.reverse()
 # print(list1)
 
+# -------------------------------------- 12
 # # 12 sort() 排序
 # # 列表中的元素只有是同类型的才能进行排序
 # # sort() 返回的值是None
@@ -211,9 +224,9 @@
 # 对应位置的元素必须是相同类型的元素
 # 先比较第一个位置元素， 如果第一个位置的元素相等，那么就比较第二个 依次进行比较
 
-
-# 了解：
-# 1 队列是先进先出 FIFO
+# --------------------------------------
+# # 了解：使用列表仿队列模式
+# # 1 队列是先进先出 FIFO
 # list1 = []
 # list1.append("a")
 # list1.append("b")
