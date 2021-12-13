@@ -60,7 +60,8 @@ def login():
 
 def register():
     """
-    用户注册功能
+    用户注册功能 输入用户名判断已经存在重新输入  密码需要两次输入一致
+    注册成功将用户名/密码写入到文件中
     :return:
     """
     while True:
@@ -73,12 +74,42 @@ def register():
         confirm_pwd = input("请再次输入密码:").strip()
         if inp_pwd == confirm_pwd:
             print("注册成功")
-            # 将用户名/密码写入到user文件中
             with open("../res/user.txt", mode="at") as f:
                 f.write(f"\n{inp_name}:{inp_pwd}")
+                user_info[inp_name] = inp_pwd
             break
 
 
-
 # login()
-register()
+# register()
+
+# 进行登录注册需要的命令编号
+msg_info = {0: "退出", 1: "登录", 2: "注册"}
+
+while True:
+    msg = """
+    0 退出
+    1 登录
+    2 注册
+    """
+    print(msg)
+    cmd = input('请输入命令编号>>: ').strip()
+    if not cmd.isdigit():
+        print('必须输入命令编号的数字，傻叉')
+        continue
+
+    if int(cmd) not in msg_info:
+        print("请输入有效编号!")
+        continue
+
+    if int(cmd) == 0:
+        print("退出成功")
+        break
+
+    if int(cmd) == 1:
+        # 登录功能代码（附加：可以把之前的循环嵌套，三次输错退出引入过来）
+        login()
+
+    if int(cmd) == 2:
+        # 注册功能代码
+        register()
