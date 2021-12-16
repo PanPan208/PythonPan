@@ -14,14 +14,14 @@ input=333
 def func():
     input=444
 func()
-print(input)
+print(input)  # 333
 
 # ===================题目二===================
 def func():
     print(x)
 x=111
 
-func()
+func()  # 111
 
 
 # ===================题目三===================
@@ -29,63 +29,98 @@ x=1
 def func():
    print(x)
 
-
 def foo():
     x=222
     func()
 
-foo()
+x = 10
+foo()  # 10
+
+
 
 # ===================题目四===================
+# 3 如果在f1/f2局部没有input名称 直接使用全局的input名称
 input=111
 def f1():
     def f2():
+        # 1 如果f2内部有input名称 直接使用这个local的
         # input=333
         print(input)
+    # 2 如果在f1内部有input名称 f2内部没有input名称
+    # 直接使用这个enclosing的
     input=222
 
     f2()
 
-f1()
+f1()  # 222
+
+
 
 # ===================题目五===================
-x=111
-def func():
-    print(x) #
-    x=222
-
-func()
+# x=111
+# def func():
+#     # 报错 引用之后声明x
+#     # UnboundLocalError: local variable 'x' referenced before assignment
+#     # 未绑定局部变量 在定义名称之前引用了局部变量x
+#     # global x
+#     print(x)
+#     x=222
+# func()
 
 
 # ===================题目六===================
-x=111
-
+# 全局名称 在全局有效
+x = 111
 def foo():
-    print(x,)
+    print(x, id(x))
 
 def bar():
-    print(x)
+    print(x, id(x))
 
 foo()
 bar()
 
+
 # ===================题目七===================
-x=1
+x = 1
 def func2():
     func1()
 
-x=2
+x = 2
 def func1():
     print(x)
 
-x=3
+x = 3
 
-func2()
+func2()  # 3
+
+"""
+# 内置名称空间：...
+
+# 全局名称空间：
+x = 3 
+func1的内存地址
+func2的内存地址
+
+# 局部名称空间：
+func1内部：无名称
+func2内部：无名称
+"""
 
 # ===================题目八===================
-# 1、如下全局变量记录了当前登录用户，编写登录功能，一旦用户登录成功，则将全局变量赋值为当前登录的用户名
+# 1、如下全局变量记录了当前登录用户，编写登录功能，
+# 一旦用户登录成功，则将全局变量赋值为当前登录的用户名
 # login_user=None
-# 2、针对之前编写的查询余额的功能，添加额外的逻辑：如果用户没有登录，则先执行登录功能
+# def login():
+#     name = input("请输入用户名:").strip
+#     if name == "123":
+#         global login_user
+#         login_user = name
+# login()
+
+
+# 2、针对之前编写的查询余额的功能，添加额外的逻辑：
+# 如果用户没有登录，则先执行登录功能
 
 
 
