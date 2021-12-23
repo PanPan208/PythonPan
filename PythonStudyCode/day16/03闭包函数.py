@@ -5,11 +5,11 @@
 
 """
 大前提：
-闭包函数 = 命名空间和作用域 + 函数嵌套 + 函数对象
+闭包函数 = 命名空间和作用域 + 函数嵌套 + 函数对象的综合应用
 
 什么是闭包函数？：
-闭： 包围 指函数是内嵌函数
-包：函数包含对外层函数作用域名称的引用 （非全局名称作用域）
+闭： 包围 指函数是内嵌函数  （闭包函数定义在一个函数内部）
+包：内部函数包含对外层函数作用域内名称的引用 （并且是非全局名称作用域）
 """
 
 
@@ -49,6 +49,7 @@
 # f()
 # f1()()
 
+
 # 函数调用的两种方式：
 # 1、直接定义一个函数 直接调用
 # def func1(x):
@@ -70,21 +71,27 @@ f()
 f = func1(20)
 f()
 
-f= func1(30)
+f = func1(30)
 f()
 
 
 # 实例3
 import requests
 
+# 1111 可以直接定义到一个函数中进行调用
 # res = requests.get("http://www.baidu.com")
 # print(res.text)
+# def request_get(url):
+#     res = requests.get(url)
+#     return len(res)
+# baidu = request_get("http://www.baidu.com")
 
+# 2222 使用闭包函数的方式
 def outter(url):
-    def get():
+    def inner():
         res = requests.get(url)
         print(res.text)
-    return get
+    return inner
 
 baidu = outter("http://www.baidu.com")
 baidu()

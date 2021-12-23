@@ -4,6 +4,8 @@
 # @Software: PyCharm
 
 # 1、函数对象优化多分支if的代码练熟
+# 使用字典数据 代替if语句
+
 # 2、编写计数器功能，要求调用一次在原有的基础上加一
 #     温馨提示：
 #         I:需要用到的知识点：闭包函数+nonlocal
@@ -12,7 +14,6 @@
 #                 x+=1
 #                 return x
 #
-#
 #     要求最终效果类似
 #         print(couter()) # 1
 #         print(couter()) # 2
@@ -20,21 +21,30 @@
 #         print(couter()) # 4
 #         print(couter()) # 5
 
-def func1():
-    x = 0
-    def counter():
+
+def outer(x):
+    def inner():
+        # 改变的是外层函数中的x
         nonlocal x
         x += 1
         return x
-    return counter
+    # 返回inner函数的地址 闭包函数
+    # 如果返回的inner() 那么是调用inner函数 返回的x的值
+    return inner
 
-counter = func1()
+# 调用outer函数 将inner函数的地址 返回给counter
+# inner outer 指向的地址一直
+counter = outer(10)
+print(counter())
+print(counter())
+print(counter())
+print(counter())
+print(counter())
 
-print(counter())
-print(counter())
-print(counter())
-print(counter())
-print(counter())
+
+# a = 100
+# print(a)
+
 
 
 

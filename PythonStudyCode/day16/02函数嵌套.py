@@ -9,7 +9,7 @@
 2、函数内定义另一个函数
 """
 
-# # 实例1
+# # 实例1 函数内调用另一个函数
 # def max2(x, y):
 #     if x > y:
 #         return x
@@ -26,13 +26,11 @@
 
 
 # 实例2 在一个函数内定义其他函数
-
 def circle(radius, action=0):
     from math import pi
 
     def perimiter(radius):
         return 2 * pi * radius
-
     def area(radius):
         return pi * (radius ** 2)
 

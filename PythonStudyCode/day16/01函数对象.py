@@ -14,11 +14,13 @@
 #
 # f = func1
 # # <function func1 at 0x10bd1e430>
+# # func1赋值给一个变量f  那么func1和f指向的是同一个内存地址
 # print(func1, f)
-# # id值 4522882096
+# # 地址以及id值 都相同
 # print(id(func1), id(f))
-# # 调用func1
+# # 调用func1 都是返回None
 # print(func1(), f())
+
 
 # # 例子2
 # # 函数(函数地址)可以作为一个变量作为函数的参数
@@ -53,7 +55,8 @@
 # d.get("fff")()
 
 
-# >>>>>>>>>>>>>>>>>>  函数对象使用实例
+
+# >>>>>>>>>>>>>>>>>>  函数对象使用的实例  <<<<<<<<<<<<<<<<<<<
 
 def login():
     print("登录成功")
@@ -70,9 +73,7 @@ def check_banlance():
 def withdraw():
     print("提现功能")
 
-# 优化：
-
-
+# 使用字典优化if语句：
 func_dic = {
     "0": ["退出", None],
     "1": ["登录", login],
@@ -92,21 +93,25 @@ while True:
     for k in func_dic:
         print(" {} {}".format(k, func_dic[k][0]))
 
+    # 1、输出操作
     cmd = input("请输入您想要进行操作：").strip()
 
+    # 2、检测是否是数字
     if not cmd.isdigit():
         print("error >>> 请输入数字!")
         continue
-
+    # 3、输入的是不是退出
     if cmd == "0":
         break
 
-    # 将if-else语句简化
+    # 4、将if-else语句简化
     if cmd in func_dic:
+        # 找到字典中的函数对象直接调用
         func_dic[cmd][1]()
     else:
         print("输入的操作有误...")
 
+    # if-else语句 当操作变的多的时候 代码会很长
     # if cmd == "1":
     #     login()
     # elif cmd == "2":
