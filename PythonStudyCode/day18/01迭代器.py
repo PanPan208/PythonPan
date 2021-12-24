@@ -26,9 +26,9 @@
     涉及到将多个值 循环取出来的类型有：列表、元组、字典、集合、字符串、文件
     
     while取值
-    只能取那些有索引的数据类型： 列表、字符串、元组
+    只能取那些有索引的数据类型： 列表、字符串、元组  使用len(obj)获取长度
     
-    为了解决也可以取那些没有索引的数据类型，
+    为了解决while也可以取那些没有索引的数据类型，
     Python提供了一个不依靠索引进行取值方式，就是迭代器
 """
 
@@ -47,7 +47,7 @@
 文件f 既是可迭代对象 也是迭代器对象
 
 调用可迭代对象下的iter()方法 可以将其转换为迭代器对象
-有了迭代器对象就可以使用next()函数 获取迭代器中的数据了
+有了迭代器对象就可以使用next()函数 获取对象中的数据了
 
 l = [1, 3, 5]
 l_iterator = l.__iter__()
@@ -75,7 +75,7 @@ with open("a.txt", mode="rt") as f:
 # d_iterator = d.__iter__()
 # print(d_iterator)
 # 返回的是一个 字典key迭代器
-# 也就是一个会 "下蛋的老母鸡"
+# 也就是一个 "会下蛋的老母鸡"  基本上不占用什么内存空间 需要的时候使用next进行取值即可
 # <dict_keyiterator object at 0x103a9f360>
 
 # 可以通过__next__() 函数获取迭代器每次迭代的值
@@ -111,7 +111,7 @@ while True:
 
 
 # 实例3
-# 只要是一个可迭代的对象都可以转换为一个迭代器
+# 只要是一个可迭代的对象都可以转换为一个迭代器对象
 my_str = "Hello World!"
 str_iterator = iter(my_str)
 while True:
@@ -142,11 +142,10 @@ while True:
 
 
 # 可迭代对象：
-# 可迭代对象调用iter得到的是一个迭代器对象
+# 可迭代对象调用iter可以得到的是一个迭代器对象
 # 可迭代对象没有next函数
 # 迭代器对象：
 # 迭代器对象调用iter得到的还是一个迭代器对象 是其本身
-# 迭代器的迭代器还是迭代器本身
 # 迭代器调用next函数得到的是每次迭代的值
 # <list_iterator object at 0x1048b1280>
 # <list_iterator object at 0x1048b1280>
@@ -175,14 +174,16 @@ print(iter(temp_str))
 list("Hello")
 
 
-# 文件
+# 文件是迭代器对象
 with open("a.txt", "rt") as f:
+    # 1 可以直接使用for in进行读取文件内容
     # for line in f:
     #     print(line)
 
+    # 2 可以使用迭代器进行迭代取值
     # f 打开的文件是一个迭代器对象
     # 有iter和next函数
-    f_iterator = f.__iter__()
+    # f_iterator = f.__iter__()
     while True:
         try:
             # print(f_iterator.__next__())

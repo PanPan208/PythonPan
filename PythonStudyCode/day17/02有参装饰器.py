@@ -12,7 +12,8 @@
 """
 
 # 方式一： 山炮玩法
-# 不能使用语法糖
+# 因为语法糖 @auth <==> func = auth(func) 语法糖默认是将函数地址传入auth
+# 如果在auth中多添加一个参数 不能使用语法糖
 # 而且在使用 index = auth(index, type) 的时候需要多传入一个参数
 '''
 def auth(func, auth_type):
@@ -59,8 +60,9 @@ transfer()
 
 # 方法二：
 # wrapper的参数不能变 为了和func参数进行对应
-# outter的参数也不能变 不然不能使用语法糖
-# 由于语法糖的限制 outter只能传入一个参数
+# deco 的参数也不能变 不然不能使用语法糖
+# 由于语法糖的限制 deco 只能传入一个参数=函数地址
+# 如果再想传入参数 可以在外层再添加一层闭包
 def auth(auth_type):
     def deco(func):
         def wrapper(*args, **kwargs):
@@ -77,21 +79,23 @@ def auth(auth_type):
         return wrapper
     return deco
 
-# @deco 等价于 index = deco(index)
 
-# deco = auth("file")
+# @deco 等价于 index = deco(index)
 # @deco = @auth("file")
 @auth(auth_type="file")
 def index(x, y):
     print(f"index: {x}, {y}使用文件中的账号密码")
 
+
 @auth(auth_type="db")
 def home(name):
     print(f"{name} 使用的是db数据库中的认证方式")
 
+
 @auth(auth_type="ldap")
 def transfer():
     print("使用的是ldap的认证方式")
+
 
 index(1, 2)
 home("pan")

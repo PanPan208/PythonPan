@@ -62,20 +62,23 @@ print(code_dic)
 code_dic["index"](1, 2)
 """
 
+
 # 3、 编写日志装饰器，实现功能如：一旦函数f1执行，
 # 则将消息2017-07-21 11:12:11 f1 run写入到日志文件中，日志文件路径可以指定
 # 注意：时间格式的获取
 # import time
 # time.strftime('%Y-%m-%d %X')
+# string from time
 """
 def func_log(file_path):
     def deco(func):
         def wrapper(*args, **kwargs):
-            res = func(*args, **kwargs)
+            # 在运行func函数之前添加记录日志
             import time
             with open(file_path, "at") as f:
                 time_now = time.strftime('%Y-%m-%d %X')
-                f.write(f'时间:{time_now}  函数:{func.__name__} run\n')
+                f.write(f'时间:{time_now}  函数:{func.__name__} run \n')
+            res = func(*args, **kwargs)
             return res
         return wrapper
     return deco
@@ -103,6 +106,20 @@ while True:
         print(str_iterator.__next__())
     except StopIteration:
         break
+
+
+def iter_obj(obj):
+    obj_iterator = iter(obj)
+    while True:
+        try:
+            print(next(obj_iterator))
+        except StopIteration:
+            break
+
+
+# iter_obj("nihao")
+# iter_obj([1, 2, 3, 4, 100])
+
 """
 
 
@@ -113,6 +130,7 @@ def my_range(start, end, step):
         yield start
         start += step
 
+  
 for i in my_range(1, 20, 2):
     print(i)
 """

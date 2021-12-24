@@ -8,6 +8,7 @@
 需要使用到yield关键字
 器：工具 创建一个迭代器就是创建一个工具，可以当成工具的有函数、类等
 在函数内一旦调用了yield关键字 那么调用函数并不会执行函数 而是会返回一个生成器对象
+函数本身还是一个函数 只有调用函数的时候才会产生一个生成器
 生成器对象即自定义的迭代器
 """
 
@@ -23,13 +24,17 @@ def func():
 
 
 g = func()
+print(func)
+# func本身还是function
+# <function func at 0x103c1e430>
 print(g)
 # generator 生成器对象
 # <generator object func at 0x10a65bcf0>
 print(type(g))
+# type类型是 generator
 # <class 'generator'>
 
-# 生成器就是迭代器对象
+# 生成器就是迭代器对象 有iter和next函数
 # g.__iter__()
 # g.__next__()
 
@@ -43,16 +48,18 @@ print(type(g))
 while True:
     try:
         print(g.__next__())
+        # print(next(g))
     except StopIteration:
         break
 
 
 # 实例：
-# 创建一个可以存放无限大数据的迭代器
+# 自定义创建一个可以存放无限大数据的迭代器
 def my_range(start, end, step):
     while start < end:
         yield start
         start += step
+
 
 g = my_range(1, 10, 2)
 # print(g.__next__())

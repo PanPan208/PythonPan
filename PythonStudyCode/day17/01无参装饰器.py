@@ -5,10 +5,9 @@
 
 """
 储备知识：
-1、*args **kwargs
+1、*args **kwargs的使用
 2、名称空间与作用域
 3、函数对象、函数嵌套、闭包函数
-
 
 装饰器：
 器：指的是工具，可以定义为函数等其他
@@ -72,6 +71,8 @@ import time
 
 # 方案三： 改版1  将参数写活
 # *args **kwargs 的使用
+# wrapper传入什么参数 index就会传入什么样的参数
+# 这样index需要什么样的参数，wrapper就传入什么样的参数即可
 # def index(x, y):
 #     time.sleep(1)
 #     print("index is {}, {}".format(x, y))
@@ -87,6 +88,7 @@ import time
 
 
 # 方案三： 改版2  将函数名也写活
+# 上一个版本中wrapper中调用的函数只是index，想要wrapper函数可以对应任何函数 需要将函数写活
 # def index(x, y):
 #     time.sleep(1)
 #     print("index is {}, {}".format(x, y))
@@ -110,7 +112,8 @@ import time
 # home()
 
 
-# 方案三： 改版3 返回值
+# 方案三： 改版3 将返回值也写活
+# 即：func函数的是什么参数 wrapper也返回什么样的参数
 # def index(x, y):
 #     time.sleep(1)
 #     print("index is {}, {}".format(x, y))
@@ -141,8 +144,9 @@ import time
 
 # 方案三： 终极版本  语法糖简化代码
 # 添加wraps会将一些 方法自带的属性也进行修改
-# 相当于给wrapper添加了又一个装饰器
+# 相当于给wrapper又添加了一个装饰器
 from functools import wraps
+
 
 def timer(func):
     @wraps(func)
@@ -161,9 +165,8 @@ def timer(func):
     return wrapper
 
 
-
 # @语法糖
-# 在被修饰函数的单独一行  @装饰器的名字
+# 在被修饰函数的上方单独一行  @装饰器的名字
 # @timer 等价于 index = timer(index)
 @timer
 def index(x, y):
@@ -180,6 +183,7 @@ print(type(index))
 print(index.__doc__)
 print(index.__name__)
 
+
 # 不加 @wraps(func)  索引到time下的wrapper方法
 # <function timer.<locals>.wrapper at 0x102e33940>
 # <class 'function'>
@@ -191,9 +195,6 @@ print(index.__name__)
 # <class 'function'>
 # index源函数
 # index
-
-
-
 
 
 @timer
@@ -210,6 +211,8 @@ def ouuter(func):
         # 1 源函数的调用
         # 2 源函数的扩展
         res = func(*args, **kwargs)
+        # 3 返回源函数的参数
         return res
+    # 4 返回wrapper
     return wrapper
 """

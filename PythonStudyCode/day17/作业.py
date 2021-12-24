@@ -71,7 +71,6 @@ index(10, 20)
 """
 
 
-
 # 四：编写装饰器，为多个函数加上认证的功能（用户的账号密码来源于文件），
 # 要求登录成功一次，后续的函数都无需再输入用户名和密码
 # 注意：从文件中读出字符串形式的字典，
@@ -89,6 +88,7 @@ end_timer = 0
 # 获取文件中的用户信息
 with open("user_db.txt", mode="rt") as f:
     res = f.read()
+    # 使用eval将字符串格式转换为数据本身对应的数据类型
     user_info = eval(f"{{{res}}}")
     print(user_info, type(user_info))
 
@@ -98,8 +98,10 @@ def login():
     while True:
         inp_name = input("请输入用户名:").strip()
         inp_pwd = input("请输入密码:").strip()
+        # 如果输入的用户名密码和本地文件中存储的用户名密码一致 登录成功
         if inp_name == user_info.get("name") and inp_pwd == user_info.get("password"):
             print("登录成功")
+            # 登录成功将登录状态改为True
             global is_login
             is_login = True
             break
@@ -107,7 +109,7 @@ def login():
             print("登录失败")
 
 
-# 登录授权 授权一次一直有效
+# 登录授权装饰器 授权一次一直有效
 def login_auth(func):
     def wrapper(*args, **kwargs):
         if not is_login:
@@ -117,6 +119,7 @@ def login_auth(func):
     return wrapper
 
 
+# 为index函数添加登录授权装饰器
 # @login_auth
 # def index(x, y):
 #     time.sleep(2)
@@ -125,8 +128,7 @@ def login_auth(func):
 # index(10, 20)
 
 
-
-# 在有效时间内 登录有效
+# 一定时间内有效装饰器  在有效时间内 登录有效
 def timer_auth(func):
     def wrapper(*args, **kwargs):
         global end_timer

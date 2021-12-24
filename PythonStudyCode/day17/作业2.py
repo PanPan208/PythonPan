@@ -35,6 +35,7 @@ def authen3(func):
     return wrapper
 
 
+# 加载顺序是从下到上
 # 执行顺序是从上到下 依次进行运行
 @authen3
 @authen1
