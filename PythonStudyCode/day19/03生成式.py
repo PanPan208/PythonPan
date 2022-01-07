@@ -29,11 +29,12 @@ print(new_l)
 
 # 2、字典生成式
 # keys = ['name', 'age', 'gender']
+# # new_dic = {key: None for key in keys if key != "gender"}
 # new_dic = {key: "default" for key in keys}
 # print(new_dic)
 
 # 将下面的列表转换为字典
-# 同理 后面可以跟if语句
+# 同理 后面可以跟if语句  去除key等于gender的元组
 # items = [('name', 'egon'), ('age', 18), ('gender', 'male')]
 # new_dic = {k: v for k, v in items if k != "gender"}
 # print(new_dic)
