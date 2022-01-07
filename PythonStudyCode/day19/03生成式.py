@@ -15,7 +15,7 @@ l = ['alex_dsb', 'lxx_dsb', 'wxx_dsb', "xxq_dsb", 'egon']
 # print(new_l)
 
 
-# 2、使用列表生成式进行生成新的列表
+# 2、使用列表生成式进行生成新的列表  也就是将for循环转换一下
 # new_l = [name for name in l]
 # 后面可以跟条件语句
 # new_l = [name for name in l if name.endswith("sb")]
@@ -25,7 +25,6 @@ l = ['alex_dsb', 'lxx_dsb', 'wxx_dsb', "xxq_dsb", 'egon']
 # new_l = [name.strip("_dsb") for name in l]
 new_l = [name.replace("_dsb", "") for name in l]
 print(new_l)
-print(list(l))
 
 
 # 2、字典生成式
@@ -48,11 +47,40 @@ print(list(l))
 
 
 # 4、生成器生成式
+# 没有元组生成式  元组生成式会转换为生成器生成式
+# ----------------- 强调 -------------------
+# 此刻g中没有一个值
+# 会产生一个生成式 不会占用什么内存
 g = (i for i in range(10) if i > 3)
-# print(g)
-# print(type(g))
+print(g)
+print(type(g))
 # g.__iter__()
 # g.__next__()
 # g是一个生成器 g是一个会下蛋的老母鸡
 # for item in g:
 #     print(item)
+
+# sum函数如果是传入一个生成器生成式 可以省略一个括号
+# print(sum(g))
+# print(sum((i for i in range(10) if i > 3)))
+# print(sum(i for i in range(10)))
+
+
+# 实例：
+# 统计一个文件中一共有多少个字符
+with open("user_info.txt", mode="rt", encoding="utf-8") as f:
+    # 方法一；
+    # char_sum = 0
+    # for line in f:
+    #     print(len(line))
+    #     char_sum += len(line)
+    # print(char_sum)
+    # 方法二： 使用列表生成式
+    # res = sum([len(line) for line in f])
+    # print(res)
+    # 方法三： 使用生成器生成式
+    # 效率最高
+    # res = sum((len(line) for line in f))
+    # 括号可以省略
+    res = sum(len(line) for line in f)
+    print(res)
