@@ -64,6 +64,7 @@ se.__iter__()
 d = {"a": 1, "b": 2}
 d.__iter__()
 
+# f既是可迭代对象也是迭代器对象
 with open("a.txt", mode="rt") as f:
     f.__iter__()
     f.__next__()
@@ -132,7 +133,7 @@ li = [10, 20, 30, 100, 200, 1000]
 for i in li:
     print(f"for i = {i}")
 
-# 任何for循环的语句 都可以使用while循环进行遍历
+# 任何for循环的语句 都可以转换为使用while循环进行遍历
 li_iterator = li.__iter__()
 while True:
     try:
@@ -141,11 +142,11 @@ while True:
         break
 
 
-# 可迭代对象：
+# 1、可迭代对象：
 # 可迭代对象调用iter可以得到的是一个迭代器对象
 # 可迭代对象没有next函数
-# 迭代器对象：
-# 迭代器对象调用iter得到的还是一个迭代器对象 是其本身
+# 2、迭代器对象：
+# 迭代器对象调用iter得到的还是一个迭代器对象 还是其本身
 # 迭代器调用next函数得到的是每次迭代的值
 # <list_iterator object at 0x1048b1280>
 # <list_iterator object at 0x1048b1280>
@@ -161,8 +162,8 @@ print(li_iterator is li_iterator.__iter__().__iter__())
 temp_str = "Hello world"
 print(len(temp_str))
 print(temp_str.__len__())
-print(temp_str.__iter__())
 print(iter(temp_str))
+print(temp_str.__iter__())
 
 
 # list() 的原理同for 循环一样

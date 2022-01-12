@@ -38,7 +38,6 @@ salaries = {
 }
 
 # 需求1 找出薪水最高的那个人 lili
-
 # 直接使用max进行遍历字典的时候 遍历的是字典的key
 # 找到的是key最大的值 是tom
 # res = max(salaries)
@@ -68,6 +67,7 @@ print(res4)
 res5 = sorted(salaries, key=lambda k: salaries[k])
 print(res5)
 
-# 实例根据薪水降序排序  reverse默认为False
+# 实例根据薪水降序排序
+# reverse默认为False
 res6 = sorted(salaries, key=lambda k: salaries[k], reverse=True)
 print(res6)

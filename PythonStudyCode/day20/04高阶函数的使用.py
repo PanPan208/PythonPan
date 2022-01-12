@@ -4,7 +4,7 @@
 # @Software: PyCharm
 
 
-# ========================= map 映射
+# =========================> map 映射
 # 高阶函数map的使用 了解
 # 映射一般是一一对应的
 l = ['zhangsan', 'lisi', 'wangwu', 'zhaoliu', 'ddx']
@@ -17,33 +17,33 @@ l = ['zhangsan', 'lisi', 'wangwu', 'zhaoliu', 'ddx']
 new_l = map(lambda x: x + '_dsb', l)
 # 使用map进行映射之后 返回的是 生成器
 print(new_l)  # <map object at 0x10e71bb20>
-print(list(new_l))
+print(list(new_l))  # 使用list()函数再转换为为列表
 # new_l.__iter__()
 # new_l.__next__()
 # for name in new_l:
 #     print(name)
 
 
-# ================= 》 filter过滤
-# 一般是过滤数据 从中找到需要的数据
+# ======================= > filter过滤
+# 一般是过滤数据 从中找到需要的数据 过滤掉不需要的值
 # 需求：找到列表中以ddx进行结尾的数据
-# 1、使用列表生成式
+# 1、使用列表生成式查找
 new_l = [name for name in l if not name.endswith("ddx")]
 print(new_l)
 
 # 2、使用filter过滤得到对应的数据
-new_l = filter(lambda name: name.endswith("ddx"), l)
+new_l = filter(lambda name: not name.endswith("ddx"), l)
 print(new_l)
 for name in new_l:
     print(name)
 
 
-# ======================= 》  reduce 叠加
+# ======================= >  reduce 叠加
 # reduce在functools模块中
 from functools import reduce
 # def reduce(function, sequence, initial=_initial_missing):
 # reduce迭代运算  每次迭代将返回的值和当前迭代的值进行运算  默认第一次的初始值是10
-res = reduce(lambda x, y: x + y, [1, 2, 3])
+res = reduce(lambda x, y: x + y, [1, 2, 3], 10)
 print(res)
 
 

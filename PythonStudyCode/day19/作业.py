@@ -38,7 +38,6 @@ def get_user_info():
                 "age": int(age), "salary": int(salary)
             })
     return user_info
-
 get_user_info()
 '''
 
@@ -48,7 +47,8 @@ get_user_info()
 def get_user_info2():
     user_info = []
     with open("user_info.txt", mode="rt", encoding="utf-8") as f:
-        user = map(lambda l: {"name": l[0], "sex": l[1], "age": int(l[2]), "salary": int(l[3])}, [line.strip().split(' ') for line in f])
+        user = map(lambda l: {"name": l[0], "sex": l[1], "age": int(l[2]), "salary": int(l[3])},
+                   [line.strip().split(' ') for line in f])
         user_info = list(user)
     return user_info
 
@@ -113,6 +113,7 @@ print(new_user_info1)
 # (前两个数的和得到第三个数，如：[0 1 1 2 3 5 8 13 21 34...])
 # 递归得到第n个斐波那契数的数值
 """
+# 获取第n个斐波那契数列的值
 def fibonacci(n):
     if n == 0:
         return 0

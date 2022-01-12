@@ -49,7 +49,7 @@ print(new_l)
 
 # 4、生成器生成式
 # 没有元组生成式  元组生成式会转换为生成器生成式
-# ----------------- 强调 -------------------
+# ----------------- 强调!!! -------------------
 # 此刻g中没有一个值
 # 会产生一个生成式 不会占用什么内存
 g = (i for i in range(10) if i > 3)
@@ -61,7 +61,8 @@ print(type(g))
 # for item in g:
 #     print(item)
 
-# sum函数如果是传入一个生成器生成式 可以省略一个括号
+
+# sum函数如果是传入一个生成器生成式 可以省略一层括号
 # print(sum(g))
 # print(sum((i for i in range(10) if i > 3)))
 # print(sum(i for i in range(10)))
@@ -70,7 +71,7 @@ print(type(g))
 # 实例：
 # 统计一个文件中一共有多少个字符
 with open("user_info.txt", mode="rt", encoding="utf-8") as f:
-    # 方法一；
+    # 方法一：
     # char_sum = 0
     # for line in f:
     #     print(len(line))
@@ -82,6 +83,6 @@ with open("user_info.txt", mode="rt", encoding="utf-8") as f:
     # 方法三： 使用生成器生成式
     # 效率最高
     # res = sum((len(line) for line in f))
-    # 括号可以省略
+    # 括号可以省略一层
     res = sum(len(line) for line in f)
     print(res)
