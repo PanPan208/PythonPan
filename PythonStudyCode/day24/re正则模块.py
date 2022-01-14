@@ -2,3 +2,6 @@
 # Author: pan
 # @File: re正则模块.py
 # @Software: PyCharm
+"""
+正则表达式
+"""
