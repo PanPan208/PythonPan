@@ -1,6 +1,6 @@
 # @time: 2022/1/14 5:30 PM
 # Author: pan
-# @File: 05logging模块.py
+# @File: 01logging模块.py
 # @Software: PyCharm
 """
 日志模块
@@ -12,6 +12,8 @@ logging.basicConfig(
     # 1、日志输出的文件位置 终端/文件
     # 如果不设置默认是终端显示
     # filename="access.log",
+    # 文件的读写方式 默认是'a'追加模式 也可以改为'w'
+    filemode='a',
 
     # 2、日志显示的内容格式  可以自己设置
     # asctime - name - levelname - module: message
@@ -31,8 +33,14 @@ logging.basicConfig(
     # info = 20
     # debug = 10
     level=10,
+
+    # 5
+    # stream：用指定的stream创建StreamHandler。
+    # 可以指定输出到sys.stderr,sys.stdout或者文件，默认为sys.stderr。
+    # 若同时列出了filename和stream两个参数，则stream参数会被忽略。
 )
 
+logging.NOTSET
 logging.debug("调试出现的bug 等级是10")
 logging.info("消息信息 等级20")
 logging.warning("警告信息 等级是30")
