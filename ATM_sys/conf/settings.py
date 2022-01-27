@@ -17,6 +17,12 @@ BASE_PATH = os.path.dirname(
 USER_DATA_PATH = os.path.join(BASE_PATH, 'db', 'user_data')
 
 
+# 日志存储路径
+LOG_PATH = os.path.join(BASE_PATH, 'log', 'log.log')
+
+# 商品路径
+SHOPPING_DATA_PATH = os.path.join(BASE_PATH, 'db', 'shop_data', 'shop_data.json')
+
 
 
 

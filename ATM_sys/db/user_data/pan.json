@@ -1,1 +1,1 @@
-{"username": "pan", "password": "ddcbab1fc428e42ec2b55999c7c542b8", "balance": 1000, "flow": [], "shop_car": {}, "locked": false}
+{"username": "pan", "password": "ddcbab1fc428e42ec2b55999c7c542b8", "balance": 90857, "flow": ["用户pan: 提现金额:$10, 手续费为：$0.5", "用户pan: 提现金额:$100, 手续费为：$5.0", "用户pan: 充值金额为:$10000, 充值后余额为：$111667"], "shop_car": {"笔记本电脑": [2000, 5], "iPhone手机": [1000, 1], "方便面": [5, 1], "抱枕": [200, 2]}, "locked": false}

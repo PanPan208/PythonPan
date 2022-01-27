@@ -25,9 +25,10 @@ def select_user(username):
         with open(username_path, mode="rt", encoding="utf-8") as f:
             user_dic = json.load(f)
             return user_dic
+    # 默认返回None
 
 
-# 保存用户信息
+# 保存用户信息json
 def save_user(user_dic):
     # 1、用户信息文件路径 用户名.json
     username = user_dic.get("username")
@@ -36,8 +37,8 @@ def save_user(user_dic):
     )
 
     # 2、将用户信息进行存储到文件夹 user_data中 一个用户使用一个json文件
-    # 存储格式 用户名.json
+    # 存储格式 用户名.json, pan.json, zhao.json
     with open(username_path, mode="wt", encoding="utf-8") as f:
-        # ensure_ascii=False 让文件中的中文显示更加美观
+        # 3、ensure_ascii=False 让文件中的中文显示更加美观
         json.dump(user_dic, f, ensure_ascii=False)
 
